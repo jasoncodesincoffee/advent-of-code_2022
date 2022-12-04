@@ -2,18 +2,17 @@ complete_overlap_accumulator = 0
 any_overlap_accumulator = 0
 
 def calc_complete_overlap(e1, e2):
-    if int(e1[0]) >= int(e2[0]):
-        if int(e1[1]) <= int(e2[1]):
-            return True
-    return False
+    if int(e1[0]) >= int(e2[0]) and int(e1[1]) <= int(e2[1]):
+        return True
+    else:
+        return False
 
 
 def calc_any_overlap(e1, e2):
-    if int(e2[0]) <= int(e1[0]) <= int(e2[1]):
+    if int(e2[0]) <= int(e1[0]) <= int(e2[1]) or int(e2[0]) <= int(e1[1]) <= int(e2[1]):
         return True
-    if int(e2[0]) <= int(e1[1]) <= int(e2[1]):
-        return True
-    return False
+    else:
+        return False
 
 
 with open('day4_input.txt', 'r') as file:
